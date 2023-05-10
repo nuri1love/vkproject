@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Форма бронирования переговорной</title>
+  </head>
+  <body>
+    <h1>Форма бронирования переговорной</h1>
+
+    <form id="booking-form">
+      <label for="room">Выберите переговорку:</label>
+      <select id="room" name="room">
+        <!-- Добавьте варианты для каждого этажа и башни -->
+        <!-- Например, для первого этажа башни А -->
+        <option value="A-1-1">Переговорка А-1-1</option>
+        <option value="A-1-2">Переговорка А-1-2</option>
+        <!-- ... -->
+      </select>
+
+      <br />
+
+      <label for="floor">Выберите этаж:</label>
+      <select id="floor" name="floor">
+        <!-- Добавьте варианты этажей от 3 до 27 -->
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <!-- ... -->
+        <option value="27">27</option>
+      </select>
+
+      <br />
+
+      <label for="tower">Выберите башню:</label>
+      <select id="tower" name="tower">
+        <option value="A">Башня А</option>
+        <option value="B">Башня Б</option>
+      </select>
+
+      <br />
+
+      <label for="date">Выберите дату:</label>
+      <input type="date" id="date" name="date" />
+
+      <br />
+
+      <label for="time">Выберите интервал времени:</label>
+      <select id="time" name="time">
+        <option value="09:00">09:00</option>
+        <option value="10:00">10:00</option>
+        <!-- ... -->
+        <option value="18:00">18:00</option>
+      </select>
+
+      <br />
+
+      <label for="comment">Комментарий:</label>
+      <textarea id="comment" name="comment"></textarea>
+
+      <br />
+
+      <button type="submit">Отправить</button>
+      <button type="button" onclick="clearForm()">Очистить</button>
+    </form>
+    <script>
+      function clearForm() {
+        document.getElementById("booking-form").reset();
+      }
+
+      document
+        .getElementById("booking-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Предотвратить отправку формы
+
+          // Получить значения из элементов формы
+          var room = document.getElementById("room").value;
+          var floor = document.getElementById("floor").value;
+          var tower = document.getElementById("tower").value;
+          var date = document.getElementById("date").value;
+          var time = document.getElementById("time").value;
+          var comment = document.getElementById("comment").value;
+
+          // Создать объект с данными формы
+          var formData = {
+            room: room,
+            floor: floor,
+            tower: tower,
+            date: date,
+            time: time,
+            comment: comment,
+          };
+        });
+    </script>
+  </body>
+</html>
